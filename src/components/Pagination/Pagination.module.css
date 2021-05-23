@@ -1,0 +1,7 @@
+.Pagination {
+   display: flex;
+   align-items: center;
+   align-content: center;
+   flex-direction: row;
+   height: 40px;
+}

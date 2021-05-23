@@ -1,0 +1,7 @@
+.ListOfImages{
+   display: flex;
+   border: 5px;
+   border-color: black;   
+   flex-wrap: wrap;
+   left: 0px;
+}

@@ -1,25 +1,24 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import TwoWindows from './components/TwoWindows/TwoWindows';
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   const [currentPage, setCurrentPage] = useState(1);
+   const [markeredPage, setMarkeredPage] = useState(false);
+   const [hasMore, setHasMore] = useState(true);
+
+   const setPage = (num) => {
+      setCurrentPage(num);
+      setMarkeredPage(!markeredPage);
+   }   
+
+   return (
+      <div className="App">
+         <TwoWindows currentPage={currentPage}/>
+         <Pagination setPage={setPage} markeredPage={markeredPage}/>
+      </div>
+   );
 }
 
 export default App;

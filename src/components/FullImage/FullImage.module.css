@@ -1,0 +1,7 @@
+.FullImage{
+   display: flex;
+   border: 5px;
+   border-color: black;  
+   width: 50%;
+   right: 0px;
+}
