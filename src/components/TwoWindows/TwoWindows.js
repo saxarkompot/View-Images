@@ -4,20 +4,19 @@ import FullImage from '../FullImage/FullImage';
 import classes from './TwoWindows.module.css';
 import UserProvider from '../UserProvider';
 
-const TwoWindows = ({ currentPage }) => {
+const TwoWindows = ({ currentPage, getNumberOfPages }) => {
 
-   const [responseData, setResponseData] = useState({});
    const [listOfImages, setListOfImages] = useState([]);
    const [imageId, setImageId] = useState('');
    const [imageUrl, setImageUrl] = useState('');
 
    useEffect(() => {
       new UserProvider().getListOfImages(currentPage).then((response) => {
-         setResponseData({ ...response.data });         
          setListOfImages(response.data.pictures);
+         getNumberOfPages(response.data.pageCount);
          console.log(response);
       })
-   }, [currentPage]);
+   }, [currentPage, getNumberOfPages]);
 
    useEffect(() => {
       new UserProvider().getFullImage(imageId).then((response) => {

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import classes from './Page.module.css';
 
-const Page = ({ number, pageStyle, click }) => {
-   const [boldNumber, setBoldNumber] = useState(pageStyle);
+const Page = ({ number, setPage }) => {
 
    return (
-      <div className={pageStyle ? classes.Page : classes.BoldPage} onClick={() => click(number)}>
+      <div className={classes.Page} onClick={() => setPage(number)}>
          {number}
       </div>
    )
